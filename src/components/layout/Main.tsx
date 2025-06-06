@@ -10,9 +10,9 @@ export function Main() {
   });
 
   return (
-    <div className="flex flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="flex flex-col md:flex-row flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 md:space-y-0 md:space-x-8">
       <Sidebar categories={categories} />
-      <main className="w-3/4 xl:w-4/5 flex flex-col space-y-6">
+      <main className="w-full md:w-3/4 xl:w-4/5 flex flex-col space-y-6">
         <Content title="Translation Management">
           <TranslationKeyManager />
         </Content>
