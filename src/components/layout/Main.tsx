@@ -1,0 +1,23 @@
+import { getFiltersOptions } from "@/lib/utils";
+import { Content } from "./Content";
+import { Sidebar } from "./Sidebar";
+import { mockedTranslationKeys } from "@/lib/mocks";
+// import { TranslationKeyManager } from "../table/TranslationKeyManager";
+
+export function Main() {
+  const { categories } = getFiltersOptions({
+    keys: mockedTranslationKeys,
+  });
+
+  return (
+    <div className="flex flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <Sidebar categories={categories} />
+      <main className="w-3/4 xl:w-4/5 flex flex-col space-y-6">
+        <Content title="Translation Management">
+          <div></div>
+          {/* <TranslationKeyManager /> */}
+        </Content>
+      </main>
+    </div>
+  );
+}
