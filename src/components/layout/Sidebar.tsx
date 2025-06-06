@@ -1,9 +1,9 @@
 import { FilterOptions } from "@/types";
-// import {
-//   CategorySelector,
-//   LanguageSelector,
-//   ProjectSelector,
-// } from "../filters";
+import {
+  CategorySelector,
+  LanguageSelector,
+  ProjectSelector,
+} from "../filters";
 
 export function Sidebar({ categories }: FilterOptions) {
   return (
@@ -13,9 +13,9 @@ export function Sidebar({ categories }: FilterOptions) {
           Filters
         </h2>
       </div>
-      {/* <ProjectSelector />
+      <ProjectSelector />
       <CategorySelector categories={categories} />
-      <LanguageSelector /> */}
+      <LanguageSelector />
     </aside>
   );
 }
