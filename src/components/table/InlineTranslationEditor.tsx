@@ -65,7 +65,10 @@ export function InlineTranslationEditor({ keyId, initialValue }: Props) {
     >
       <div className="truncate w-full">
         {mutation.isPending ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <Loader2
+            className="h-4 w-4 animate-spin"
+            data-testid="animate-spin"
+          />
         ) : value ? (
           value
         ) : (

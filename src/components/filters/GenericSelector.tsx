@@ -29,7 +29,7 @@ export function GenericSelector({
         {label}
       </h2>
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger>
+        <SelectTrigger data-testid="select-button">
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>

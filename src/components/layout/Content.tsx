@@ -5,7 +5,10 @@ interface ContentProps {
 
 export function Content({ title, children }: ContentProps) {
   return (
-    <section className="flex-grow bg-white dark:bg-stone-800 shadow rounded-lg p-4 lg:p-6">
+    <section
+      role="region"
+      className="flex-grow bg-white dark:bg-stone-800 shadow rounded-lg p-4 lg:p-6"
+    >
       <h2 className="text-xl font-semibold mb-4 text-stone-700 dark:text-stone-300">
         {title}
       </h2>
