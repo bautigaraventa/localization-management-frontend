@@ -1,29 +1,23 @@
 "use client";
 
-import { useTranslationStore } from "@/store/translationStore";
-import { useTranslationKeys } from "@/hooks/useTranslationKeys";
 import { TranslationTable } from "./TranslationTable";
 import { TableLoader } from "./TableLoader";
+import { TranslationKey } from "@/types";
 
-export function TranslationKeyManager() {
-  const { selectedLanguage, selectedProject, selectedCategory } =
-    useTranslationStore();
+interface TranslationKeyManagerProps {
+  keys: TranslationKey[];
+  isFetching: boolean;
+}
 
-  const { data: keys = [], isLoading } = useTranslationKeys({
-    projectId: selectedProject,
-    locale: selectedLanguage,
-  });
-
-  const filtered =
-    selectedCategory === "all"
-      ? keys
-      : keys.filter((k) => k.category === selectedCategory);
-
-  if (isLoading) return <TableLoader />;
+export function TranslationKeyManager({
+  keys,
+  isFetching,
+}: TranslationKeyManagerProps) {
+  if (isFetching) return <TableLoader />;
 
   return (
     <div className="space-y-2">
-      <TranslationTable data={filtered} />
+      <TranslationTable data={keys} />
     </div>
   );
 }

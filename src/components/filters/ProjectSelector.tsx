@@ -12,7 +12,10 @@ export function ProjectSelector() {
       label="Project"
       value={selectedProject}
       onChange={setSelectedProject}
-      options={mockedProjects.map((p) => ({ value: p.id, label: p.name }))}
+      options={[
+        { value: "all", label: "All" },
+        ...mockedProjects.map((p) => ({ value: p.id, label: p.name })),
+      ]}
       placeholder="Select a project"
     />
   );

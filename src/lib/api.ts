@@ -1,27 +1,11 @@
-import { TranslationKey, UpdateTranslationValue } from "@/types/translation";
+import { UpdateTranslationValue } from "@/types/translation";
 
 export interface FetchTranslationKeysParams {
     projectId?: string;
     locale?: string;
 }
 
-export async function fetchTranslationKeys({projectId, locale}: FetchTranslationKeysParams): Promise<TranslationKey[]> {
-  // For real API:
-  //   if (projectId) {
-  //     return fetch(`${process.env.API_URL}/localizations/${projectId}/${locale ?? 'en'}`).then((res) => res.json());
-  //   } else {
-  //     return fetch(`${process.env.API_URL}/localizations/${locale ?? 'en'}`).then((res) => res.json());
-  //   }
-  
-  console.log("FAKE API CALL START")
-  console.log({projectId})
-  console.log({locale})
-  await new Promise((r) => setTimeout(r, 2000));
-  const { mockedTranslationKeys } = await import('./mocks');
-  console.log("FAKE API CALL END")
-  return mockedTranslationKeys;
-}
-
+// Faking unexisting (out of scope) api call.
 export async function updateTranslationValue({
   id,
   language,

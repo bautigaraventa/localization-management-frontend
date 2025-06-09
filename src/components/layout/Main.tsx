@@ -1,12 +1,28 @@
+"use client";
+
 import { getFiltersOptions } from "@/lib/utils";
 import { Content } from "./Content";
 import { Sidebar } from "./Sidebar";
-import { mockedTranslationKeys } from "@/lib/mocks";
-import { TranslationKeyManager } from "../table/TranslationKeyManager";
+import { useTranslationKeys } from "@/hooks/useTranslationKeys";
+import { useTranslationStore } from "@/store/translationStore";
+import { TranslationKeyManager } from "../table";
 
 export function Main() {
+  const { selectedLanguage, selectedProject, selectedCategory } =
+    useTranslationStore();
+
+  const { data: keys = [], isLoading } = useTranslationKeys({
+    projectId: selectedProject,
+    locale: selectedLanguage,
+  });
+
+  const filtered =
+    selectedCategory === "all"
+      ? keys
+      : keys.filter((k) => k.category === selectedCategory);
+
   const { categories } = getFiltersOptions({
-    keys: mockedTranslationKeys,
+    keys,
   });
 
   return (
@@ -14,7 +30,7 @@ export function Main() {
       <Sidebar categories={categories} />
       <main className="w-full md:w-3/4 xl:w-4/5 flex flex-col space-y-6">
         <Content title="Translation Management">
-          <TranslationKeyManager />
+          <TranslationKeyManager isFetching={isLoading} keys={filtered} />
         </Content>
       </main>
     </div>

@@ -3,15 +3,13 @@ export interface TranslationValue {
   updatedAt: string;
   updatedBy: string;
 }
-  
+
 export interface TranslationKey {
   id: string;
   key: string;
+  value: string;
+  updatedAt: string;
   category: string;
-  description?: string;
-  translations: {
-    [languageCode: string]: TranslationValue;
-  };
 }
 
 export interface UpdateTranslationValue {

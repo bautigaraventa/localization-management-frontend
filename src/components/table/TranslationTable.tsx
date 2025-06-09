@@ -31,7 +31,6 @@ import {
   TableHeader,
   TableRow,
 } from "../ui";
-import { useTranslationStore } from "@/store/translationStore";
 import { format } from "date-fns";
 import { InlineTranslationEditor } from "./InlineTranslationEditor";
 
@@ -40,8 +39,6 @@ interface TranslationTableProps {
 }
 
 export function TranslationTable({ data }: TranslationTableProps) {
-  const selectedLanguage = useTranslationStore((s) => s.selectedLanguage);
-
   const columns: ColumnDef<TranslationKey>[] = [
     {
       id: "select",
@@ -78,7 +75,7 @@ export function TranslationTable({ data }: TranslationTableProps) {
           </Button>
         );
       },
-      cell: ({ row }) => <div>{row.getValue("id")}</div>,
+      cell: ({ row }) => <div>{String(row.getValue("id")).slice(0, 6)}</div>,
     },
     {
       accessorKey: "key",
@@ -99,11 +96,11 @@ export function TranslationTable({ data }: TranslationTableProps) {
       accessorKey: "value",
       header: "Translation",
       cell: ({ row }) => {
-        const key = row.original;
-        const translation = key.translations?.[selectedLanguage]?.value ?? "";
-
         return (
-          <InlineTranslationEditor keyId={key.id} initialValue={translation} />
+          <InlineTranslationEditor
+            keyId={row.getValue("id")}
+            initialValue={row.getValue("value")}
+          />
         );
       },
     },
@@ -111,8 +108,7 @@ export function TranslationTable({ data }: TranslationTableProps) {
       accessorKey: "updatedAt",
       header: "Updated at",
       cell: ({ row }) => {
-        const key = row.original;
-        const updatedAt = key.translations?.[selectedLanguage]?.updatedAt;
+        const updatedAt = new Date(row.getValue("updatedAt"));
         return (
           <div>
             {updatedAt ? (

@@ -17,7 +17,3 @@ export function getFiltersOptions({ keys }: { keys: TranslationKey[] }): FilterO
       categories: Array.from(categories),
     };
   }
-
-
-
-

@@ -12,7 +12,7 @@ interface TranslationStore {
 export const useTranslationStore = create<TranslationStore>((set) => ({
   selectedLanguage: "en",
   selectedCategory: "all",
-  selectedProject: "",
+  selectedProject: "all",
   setSelectedLanguage: (selectedLanguage) => set({ selectedLanguage }),
   setSelectedCategory: (selectedCategory) => set({ selectedCategory }),
   setSelectedProject: (selectedProject) => set({ selectedProject }),
