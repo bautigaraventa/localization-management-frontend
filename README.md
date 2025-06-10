@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Localization Management Frontend
 
-## Getting Started
+Demo:
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The Localization Management Frontend is a web application designed to facilitate the management of localization files and translations for various projects. It provides a user-friendly interface for developers and translators to collaborate on localization efforts.
+
+## Technologies Used
+
+- **Framework**: Next.js 15 App Router (with `app/` directory)
+- **Styling**: TailwindCSS, shadcn/ui components
+- **Tables**: TanStack Table
+- **API Fetch**: TanStack Query
+- **Date utils**: date-fns
+- **State**: Zustand
+
+## Project Structure
+
+```text
+src/
+│
+├── app/
+│ │
+│ ├── api/translations
+│ │ └── route.ts # Next.js Server API endpoint
+│ └── page.tsx # Main site
+│
+├── components/
+│ ├── filters/ # Filters components
+│ ├── table/ # Translations Table components
+│ ├── layout/ # Shell components
+│ └── ui/ # Shadcn-ui base components
+├── hooks/
+│ └── useTranslationKeys.ts # Data fetching hook
+│
+├── lib/ # Mocks and utils
+├── store/ # Zustand store
+└── types/ # TypeScript interfaces/enums/consts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Clone this repo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set ENV variable in your .env.local: `API_URL=http://127.0.0.1:8000`
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open in browser http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Tu run tests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run test
+```
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Table View**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  Translations shown in a paginated table with 4 columns: ID, Key, Translation value, Updated at. The columns can be hidden/shown as the user wants
+
+- **Sorting**
+
+  The table can be sorted asc/desc by ID and Key.
+
+- **Filtering**
+
+  The table content can be filtered by project, by category, and by language.
+
+- **Searching**
+
+  Search table rows by Key is available in a text input search bar.
+
+## Out of scope
+
+- An endpoint to generate some stats was created but is not being consume by the UI.
+- Authentication: we are seeing a mocked username and avatar.
+- Persist a translation update to the database.
+- Get projects from DB: we are seeing 3 mocked projects.
+- Get languages from DB: we are seeing 3 mocked languages.
