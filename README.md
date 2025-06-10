@@ -1,14 +1,14 @@
 # Localization Management Frontend
 
-for a quick Demo wath the videos in the following order:
-
-1. https://www.loom.com/share/72843c2866f145fbb289bf96186acd81?sid=e75f0b7b-a711-4da1-afd0-afab3dd7dc38
-2. https://www.loom.com/share/0331c6ccc0804959b7374148662ba066?sid=efef7b05-33d9-4c70-8fb7-1dcf939c547f
-3. https://www.loom.com/share/ecff1de1fad84648929f2f8c7843b906?sid=71a7395b-1dad-4c81-969f-1eee1029c68e
-
 ## Overview
 
 The Localization Management Frontend is a web application designed to facilitate the management of localization files and translations for various projects. It provides a user-friendly interface for developers and translators to collaborate on localization efforts.
+
+For a quick Demo wath the videos in the following order:
+
+- [Demo 1/3](https://www.loom.com/share/72843c2866f145fbb289bf96186acd81?sid=e75f0b7b-a711-4da1-afd0-afab3dd7dc38)
+- [Demo 2/3](https://www.loom.com/share/0331c6ccc0804959b7374148662ba066?sid=efef7b05-33d9-4c70-8fb7-1dcf939c547f)
+- [Demo 3/3](https://www.loom.com/share/ecff1de1fad84648929f2f8c7843b906?sid=71a7395b-1dad-4c81-969f-1eee1029c68e)
 
 ## Technologies Used
 
